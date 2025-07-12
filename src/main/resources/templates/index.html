@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Directory</title>
+  <link rel="stylesheet" href="../static/css/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="header-text">
+        <h1>Employee Directory</h1>
+        <div class="search-filter">
+            <input type="text" id="searchInput" placeholder="Search by name or email" />
+            <button onclick="showFilter()">Filter</button>
+        </div>
+      </div>
+      <div class="header-text">
+        <div class="sort-pagination">
+            <label for="sortField">Sort By:</label>
+            <select id="sortField">
+                <option value="">--Select--</option>
+                <option value="firstName">First Name</option>
+                <option value="department">Department</option>
+            </select>
+            <select id="sortOrder">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+            <label for="itemsPerPage">Items per page:</label>
+            <select id="itemsPerPage">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            </div>
+            <div class="search-filter">
+                <button class="add-button" onclick="showForm()">Add Employee</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filter Panel -->
+    <div id="filterPanel" class="filter-panel hidden">
+      <label>First Name: <input type="text" id="filterFirstName" /></label>
+      <label>Department: <input type="text" id="filterDepartment" /></label>
+      <label>Role: <input type="text" id="filterRole" /></label>
+      <button onclick="applyFilter()">Apply</button>
+      <button onclick="resetFilter()">Reset</button>
+    </div>
+
+    <!-- Employee Cards -->
+    <div id="employeeList" class="employee-list">
+      <!-- Employee cards will be dynamically inserted by JavaScript -->
+    </div>
+    <div id="paginationControls" class="pagination-controls"></div>
+
+
+    <!-- Form Container -->
+    <div id="formContainer" class="form-container hidden">
+      <h2 id="formTitle">Add Employee</h2>
+      <form id="employeeForm">
+        <input type="hidden" id="employeeId" />
+        <label>First Name: <input type="text" id="firstName" required /></label>
+        <label>Last Name: <input type="text" id="lastName" required /></label>
+        <label>Email: <input type="email" id="email" required /></label>
+        <label>Department:
+          <select id="department" required>
+            <option value="">Select</option>
+            <option>HR</option>
+            <option>IT</option>
+            <option>Finance</option>
+          </select>
+        </label>
+        <label>Role:
+          <select id="role" required>
+            <option value="">Select</option>
+            <option>Manager</option>
+            <option>Developer</option>
+            <option>Analyst</option>
+          </select>
+        </label>
+        <div class="form-actions">
+          <button type="button" onclick="cancelForm()">Cancel</button>
+          <button class="save" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+
+    <footer>
+      <p>© 2025 Employee Directory App. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="../static/js/data.js"></script>
+  <script src="../static/js/app.js"></script>
+</body>
+</html>
