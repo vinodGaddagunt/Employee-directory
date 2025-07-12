@@ -34,7 +34,7 @@ employee-directory/
 │ │ ├── app.js
 │ │ └── data.js
 │ └── templates/
-│ └── index.ftlh
+│ └── index.html
 ├── README.md
 
 > ✅ This structure is compatible with Spring Boot (if using Freemarker), but you can run it as a standalone frontend project as well.
